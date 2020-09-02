@@ -183,7 +183,7 @@ namespace RDFSharp.Query
         {
             if (graph != null)
             {
-                return RDFQueryEngine.CreateNew().EvaluateDescribeQuery(this, graph);
+                return new RDFQueryEngine().EvaluateDescribeQuery(this, graph);
             }
             else
             {
@@ -198,7 +198,7 @@ namespace RDFSharp.Query
         {
             if (store != null)
             {
-                return RDFQueryEngine.CreateNew().EvaluateDescribeQuery(this, store);
+                return new RDFQueryEngine().EvaluateDescribeQuery(this, store);
             }
             else
             {
@@ -213,7 +213,7 @@ namespace RDFSharp.Query
         {
             if (federation != null)
             {
-                return RDFQueryEngine.CreateNew().EvaluateDescribeQuery(this, federation);
+                return new RDFQueryEngine().EvaluateDescribeQuery(this, federation);
             }
             else
             {
@@ -258,6 +258,13 @@ namespace RDFSharp.Query
                         describeResult.DescribeResults.TableName = this.ToString();
                     }
 
+                }
+
+                //Eventually adjust column names (should start with "?")
+                Int32 columnsCount = describeResult.DescribeResults.Columns.Count;
+                for (Int32 i = 0; i < columnsCount; i++) {
+                    if (!describeResult.DescribeResults.Columns[i].ColumnName.StartsWith("?"))
+                        describeResult.DescribeResults.Columns[i].ColumnName = "?" + describeResult.DescribeResults.Columns[i].ColumnName;
                 }
 
                 RDFQueryEvents.RaiseDESCRIBEQueryEvaluation(String.Format("Evaluated DESCRIBE query on SPARQL endpoint '{0}': Found '{1}' results.", sparqlEndpoint, describeResult.DescribeResultsCount));

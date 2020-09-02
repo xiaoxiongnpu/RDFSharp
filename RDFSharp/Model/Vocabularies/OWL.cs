@@ -187,9 +187,9 @@ namespace RDFSharp.Model
             public static readonly RDFResource DIFFERENT_FROM = new RDFResource(OWL.BASE_URI + "differentFrom");
 
             /// <summary>
-            /// owl:AllDifferent
+            /// owl:members
             /// </summary>
-            public static readonly RDFResource ALL_DIFFERENT = new RDFResource(OWL.BASE_URI + "AllDifferent");
+            public static readonly RDFResource MEMBERS = new RDFResource(OWL.BASE_URI + "members");
 
             /// <summary>
             /// owl:distinctMembers
@@ -250,6 +250,36 @@ namespace RDFSharp.Model
             /// owl:versionIRI
             /// </summary>
             public static readonly RDFResource VERSION_IRI = new RDFResource(OWL.BASE_URI + "versionIRI");
+
+            /// <summary>
+            /// owl:disjointUnionOf [OWL2]
+            /// </summary>
+            public static readonly RDFResource DISJOINT_UNION_OF = new RDFResource(OWL.BASE_URI + "disjointUnionOf");
+
+            /// <summary>
+            /// owl:AllDisjointClasses [OWL2]
+            /// </summary>
+            public static readonly RDFResource ALL_DISJOINT_CLASSES = new RDFResource(OWL.BASE_URI + "AllDisjointClasses");
+
+            /// <summary>
+            /// owl:AllDifferent [OWL2]
+            /// </summary>
+            public static readonly RDFResource ALL_DIFFERENT = new RDFResource(OWL.BASE_URI + "AllDifferent");
+
+            /// <summary>
+            /// owl:AsymmetricProperty [OWL2]
+            /// </summary>
+            public static readonly RDFResource ASYMMETRIC_PROPERTY = new RDFResource(OWL.BASE_URI + "AsymmetricProperty");
+
+            /// <summary>
+            /// owl:ReflexiveProperty [OWL2]
+            /// </summary>
+            public static readonly RDFResource REFLEXIVE_PROPERTY = new RDFResource(OWL.BASE_URI + "ReflexiveProperty");
+
+            /// <summary>
+            /// owl:IrreflexiveProperty [OWL2]
+            /// </summary>
+            public static readonly RDFResource IRREFLEXIVE_PROPERTY = new RDFResource(OWL.BASE_URI + "IrreflexiveProperty");
             #endregion
 
         }

@@ -14,6 +14,7 @@
    limitations under the License.
 */
 
+using RDFSharp.Model;
 using System;
 using System.Collections.Specialized;
 
@@ -22,7 +23,7 @@ namespace RDFSharp.Query
     /// <summary>
     /// RDFSPARQLEndpoint represents a SPARQL endpoint
     /// </summary>
-    public class RDFSPARQLEndpoint
+    public class RDFSPARQLEndpoint : RDFDataSource
     {
 
         #region Properties

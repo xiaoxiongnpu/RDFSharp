@@ -170,7 +170,7 @@ namespace RDFSharp.Query
         {
             if (graph != null)
             {
-                return RDFQueryEngine.CreateNew().EvaluateSelectQuery(this, graph);
+                return new RDFQueryEngine().EvaluateSelectQuery(this, graph);
             }
             else
             {
@@ -185,7 +185,7 @@ namespace RDFSharp.Query
         {
             if (store != null)
             {
-                return RDFQueryEngine.CreateNew().EvaluateSelectQuery(this, store);
+                return new RDFQueryEngine().EvaluateSelectQuery(this, store);
             }
             else
             {
@@ -200,7 +200,7 @@ namespace RDFSharp.Query
         {
             if (federation != null)
             {
-                return RDFQueryEngine.CreateNew().EvaluateSelectQuery(this, federation);
+                return new RDFQueryEngine().EvaluateSelectQuery(this, federation);
             }
             else
             {
@@ -246,9 +246,38 @@ namespace RDFSharp.Query
 
                 }
 
+                //Eventually adjust column names (should start with "?")
+                Int32 columnsCount = selResult.SelectResults.Columns.Count;
+                for (Int32 i = 0; i < columnsCount; i++) {
+                    if (!selResult.SelectResults.Columns[i].ColumnName.StartsWith("?"))
+                        selResult.SelectResults.Columns[i].ColumnName = "?" + selResult.SelectResults.Columns[i].ColumnName;
+                }
+
                 RDFQueryEvents.RaiseSELECTQueryEvaluation(String.Format("Evaluated SELECT query on SPARQL endpoint '{0}': Found '{1}' results.", sparqlEndpoint, selResult.SelectResultsCount));
             }
             return selResult;
+        }
+
+        /// <summary>
+        /// Applies the query to the given data source
+        /// </summary>
+        internal RDFSelectQueryResult ApplyToDataSource(RDFDataSource dataSource)
+        {
+            if (dataSource != null)
+            {
+                switch (dataSource)
+                {
+                    case RDFGraph graph:
+                        return this.ApplyToGraph(graph);
+                    case RDFStore store:
+                        return this.ApplyToStore(store);
+                    case RDFFederation federation:
+                        return this.ApplyToFederation(federation);
+                    case RDFSPARQLEndpoint sparqlEndpoint:
+                        return this.ApplyToSPARQLEndpoint(sparqlEndpoint);
+                }
+            }
+            return new RDFSelectQueryResult();
         }
 
         /// <summary>

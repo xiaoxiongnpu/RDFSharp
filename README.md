@@ -1,6 +1,6 @@
 # RDFSharp [![NuGet Badge](https://buildstats.info/nuget/RDFSharp)](https://www.nuget.org/packages/RDFSharp)
 
-RDFSharp has a modular API made up of four layers: 
+RDFSharp has a modular API made up of four layers ([RDF/SPARQL docs](https://github.com/mdesalvo/RDFSharp/releases/download/v2.15.0/RDFSharp-2.15.0.pdf), [OWL docs](https://github.com/mdesalvo/RDFSharp/releases/download/v2.15.0/RDFSharp.Semantics-2.15.0.pdf)): 
 
 <ul>
     <li><b>RDFSharp.Model</b></li> 
@@ -15,13 +15,13 @@ RDFSharp has a modular API made up of four layers:
     <ul>
         <li>Create and manage <i>RDF stores</i> for context-aware modeling of RDF data (quadruples)</li>
         <li>Exchange them using standard <i>RDF formats</i> (N-Quads, TriX)</li>
-        <li>Create and manage <i>RDF federations</i> giving integrated query access to multiple stores</li>
     </ul>
 </ul>
 <ul>
     <li><b>RDFSharp.Query</b></li> 
     <ul>
-        <li>Create and execute <i>SPARQL queries</i> on graphs, stores, federations and <i>SPARQL endpoints</i></li>
+        <li>Create and manage <i>RDF federations</i> giving integrated query access to multiple data sources</li>
+        <li>Create and execute <i>SPARQL queries</i> on graphs, stores, federations and <i>SPARQL endpoints</i></li>        
     </ul>
 </ul>
 <ul>
@@ -29,7 +29,7 @@ RDFSharp has a modular API made up of four layers:
     <ul>
         <li>Create and manage <i>OWL-DL ontologies</i> (classes, restrictions, properties, facts, assertions, annotations, ...)</li>
         <li>Validate ontology <i>T-BOX</i> and <i>A-BOX</i> against a customizable set of <i>RDFS/OWL-DL</i> constraint rules</li>
-        <li>Create <i>OWL-DL reasoners</i> exploiting a customizable set of <i>RDFS/OWL-DL</i> inference rules</li>
-        <li>Create and manage <i>SKOS thesauri</i> with a friendly and powerful fluent API</li>
+        <li>Create <i>OWL-DL reasoners</i> exploiting an extensible set of <i>RDFS/OWL-DL</i> inference rules</li>
+        <li>Create and manage <i>SKOS glossaries, thesauri and classification schemes</i> with a friendly and powerful API</li>
     </ul>
 </ul>

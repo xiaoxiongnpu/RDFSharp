@@ -14,6 +14,7 @@
    limitations under the License.
 */
 
+using RDFSharp.Query;
 using RDFSharp.Store;
 using System;
 
@@ -49,6 +50,14 @@ namespace RDFSharp.Model
         internal Boolean IsFederation()
         {
             return this is RDFFederation;
+        }
+
+        /// <summary>
+        /// Checks if this data source is a SPARQL endpoint
+        /// </summary>
+        internal Boolean IsSPARQLEndpoint()
+        {
+            return this is RDFSPARQLEndpoint;
         }
         #endregion
 

@@ -101,7 +101,7 @@ namespace RDFSharp.Query
         {
             if (graph != null)
             {
-                return RDFQueryEngine.CreateNew().EvaluateAskQuery(this, graph);
+                return new RDFQueryEngine().EvaluateAskQuery(this, graph);
             }
             else
             {
@@ -116,7 +116,7 @@ namespace RDFSharp.Query
         {
             if (store != null)
             {
-                return RDFQueryEngine.CreateNew().EvaluateAskQuery(this, store);
+                return new RDFQueryEngine().EvaluateAskQuery(this, store);
             }
             else
             {
@@ -131,7 +131,7 @@ namespace RDFSharp.Query
         {
             if (federation != null)
             {
-                return RDFQueryEngine.CreateNew().EvaluateAskQuery(this, federation);
+                return new RDFQueryEngine().EvaluateAskQuery(this, federation);
             }
             else
             {
